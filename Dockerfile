@@ -1,18 +1,17 @@
 from phusion/baseimage
 maintainer Fareed Dudhia <fareeddudhia@gmail.com>
 
-# Set root user's home dir
-env HOME /root
-
-# Set SERF_ROLE
-env SERF_ROLE serfer
-
-# Install Serf
 run apt-get update -q
 run apt-get install -qy build-essential git unzip
 add https://dl.bintray.com/mitchellh/serf/0.4.1_linux_amd64.zip serf.zip
 run unzip serf.zip
 run mv serf /usr/bin
+
+# Set root user's home dir
+env HOME /root
+
+# Set SERF_ROLE
+env SERF_ROLE serfer
 
 # Add Serf to initialization proc
 run mkdir /etc/service/serf
