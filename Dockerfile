@@ -18,7 +18,6 @@ run mkdir /etc/service/serf
 run touch /var/log/serf.log
 
 add ./serf.sh /etc/service/serf/run
-run chmod +x /etc/service/serf/run
 
 # Add the default env for the SERF_ROLE
 run touch /etc/container_environment/SERF_ROLE
