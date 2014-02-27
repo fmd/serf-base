@@ -16,7 +16,7 @@ env SERF_ROLE serfer
 # Add Serf to initialization proc
 run mkdir /etc/service/serf
 run touch /etc/service/serf/run
-run echo "exec serf agent -role \$SERF_ROLE && echo 'RAN'" > /etc/service/serf/run
+run echo "exec serf agent -role \$SERF_ROLE >> /var/log/serf.log 2>&1" > /etc/service/serf/run
 run chmod +x /etc/service/serf/run
 
 # Add the default env for the SERF_ROLE
