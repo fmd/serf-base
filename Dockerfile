@@ -2,7 +2,10 @@ from phusion/baseimage
 maintainer Fareed Dudhia <fareeddudhia@gmail.com>
 
 # Set root user's home dir
-ENV HOME /root
+env HOME /root
+
+# Set SERF_ROLE
+env SERF_ROLE serfer
 
 # Install Serf
 run apt-get update -q
@@ -14,7 +17,12 @@ run mv serf /usr/bin
 # Add Serf to initialization proc
 run mkdir /etc/service/serf
 run touch /etc/service/serf/run
-run echo "exec serf agent -role $SERF_ROLE" > /etc/service/serf/run
+run echo "exec serf agent -role \$SERF_ROLE && echo 'RAN'" > /etc/service/serf/run
+run chmod +x /etc/service/serf/run
+
+# Add the default env for the SERF_ROLE
+run touch /etc/container_environment/SERF_ROLE
+run echo -n "serfer" > /etc/container_environment/SERF_ROLE
 
 # Set the usual CMD for phusion/baseimage
 CMD ["/sbin/my_init"]
