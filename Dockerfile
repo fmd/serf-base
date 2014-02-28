@@ -10,9 +10,6 @@ run mv serf /usr/bin
 # Set root user's home dir
 env HOME /root
 
-# Set SERF_ROLE
-env SERF_ROLE serfer
-
 # Add Serf to initialization proc
 run mkdir /etc/service/serf
 run touch /var/log/serf.log
