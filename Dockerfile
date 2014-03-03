@@ -15,8 +15,11 @@ run mkdir /etc/service/serf
 run touch /var/log/serf.log
 run pip install serfclient
 
-add ./members/ /
+run mkdir /members
+add ./members/ /members/
 add ./serf.sh /etc/service/serf/run
+add ./member_join.py /
+add ./member_leave.py /
 
 # Add the default env for the SERF_ROLE
 run touch /etc/container_environment/SERF_ROLE
