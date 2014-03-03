@@ -2,7 +2,7 @@ from phusion/baseimage
 maintainer Fareed Dudhia <fareeddudhia@gmail.com>
 
 run apt-get update -q
-run apt-get install -qy build-essential git unzip python-pip
+run apt-get install -qy build-essential git unzip python-pip python-dev
 add https://dl.bintray.com/mitchellh/serf/0.4.1_linux_amd64.zip serf.zip
 run unzip serf.zip
 run mv serf /usr/bin
@@ -15,6 +15,7 @@ run mkdir /etc/service/serf
 run touch /var/log/serf.log
 run pip install serfclient
 
+add ./members/ /
 add ./serf.sh /etc/service/serf/run
 
 # Add the default env for the SERF_ROLE
