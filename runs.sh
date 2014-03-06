@@ -8,3 +8,7 @@ mv serf /usr/bin
 mkdir /etc/service/serf
 touch /var/log/serf.log
 pip install serfclient
+
+# Add the default env for the SERF_ROLE
+touch /etc/container_environment/SERF_ROLE
+echo -n "serfer" > /etc/container_environment/SERF_ROLE
