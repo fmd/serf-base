@@ -20,6 +20,3 @@ CMD ["/sbin/my_init"]
 
 # Expose the proper pors
 EXPOSE 7946 7373
-
-# Cleanup
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
