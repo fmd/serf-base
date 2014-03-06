@@ -12,9 +12,8 @@ add ./serf.sh /etc/service/serf/run
 add ./member_join.py /
 add ./member_leave.py /
 
-# Add the default env for the SERF_ROLE
-run touch /etc/container_environment/SERF_ROLE
-run echo -n "serfer" > /etc/container_environment/SERF_ROLE
+add ./install.sh /
+run exec /install.sh
 
 # Set the usual CMD for phusion/baseimage
 CMD ["/sbin/my_init"]
