@@ -12,3 +12,5 @@ pip install serfclient
 # Add the default env for the SERF_ROLE
 touch /etc/container_environment/SERF_ROLE
 echo -n "serfer" > /etc/container_environment/SERF_ROLE
+
+apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
